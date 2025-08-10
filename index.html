@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Amazon Bedrock 基盤モデル比較</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <h1>Amazon Bedrock 基盤モデル比較</h1>
+                <div class="header-controls">
+                    <div class="currency-selector">
+                        <div class="currency-options">
+                            <label class="currency-option">
+                                <input type="radio" name="currency" value="USD" checked>
+                                <span class="currency-label">USD</span>
+                            </label>
+                            <label class="currency-option">
+                                <input type="radio" name="currency" value="JPY">
+                                <span class="currency-label">JPY</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="theme-selector">
+                        <div class="theme-options">
+                            <label class="theme-option">
+                                <input type="radio" name="theme" value="light" checked>
+                                <span class="theme-label">ライト</span>
+                            </label>
+                            <label class="theme-option">
+                                <input type="radio" name="theme" value="dark">
+                                <span class="theme-label">ダーク</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="モデル名で検索...">
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="app-layout">
+            <aside class="filter-panel">
+                <h3>フィルタ</h3>
+                
+                <div class="filter-group">
+                    <label for="providerFilter">プロバイダー</label>
+                    <select id="providerFilter">
+                        <option value="all">すべて</option>
+                        <option value="Anthropic">Anthropic</option>
+                        <option value="Amazon">Amazon</option>
+                        <option value="Meta">Meta</option>
+                        <option value="Cohere">Cohere</option>
+                        <option value="AI21 Labs">AI21 Labs</option>
+                        <option value="Stability AI">Stability AI</option>
+                        <option value="Mistral AI">Mistral AI</option>
+                        <option value="OpenAI">OpenAI</option>
+                        <option value="DeepSeek">DeepSeek</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="typeFilter">タイプ</label>
+                    <select id="typeFilter">
+                        <option value="all">すべて</option>
+                        <option value="text">テキスト生成</option>
+                        <option value="image">画像生成</option>
+                        <option value="embedding">埋め込み</option>
+                        <option value="video">動画生成</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="priceFilter">価格帯</label>
+                    <select id="priceFilter">
+                        <option value="all">すべて</option>
+                        <option value="low">低価格 (< $0.002)</option>
+                        <option value="medium">中価格 ($0.002 - $0.01)</option>
+                        <option value="high">高価格 (> $0.01)</option>
+                    </select>
+                </div>
+
+                <button id="resetFilters" class="btn-secondary">フィルタリセット</button>
+            </aside>
+
+            <div class="main-content">
+                <div class="toolbar">
+                    <div class="selected-count">
+                        選択中: <span id="selectedCount">0</span> モデル
+                    </div>
+                    <div class="toolbar-buttons">
+                        <button id="updateModels" class="btn-secondary">モデル情報更新</button>
+                        <button id="compareBtn" class="btn-primary" disabled>選択モデルを比較</button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="modelsTable">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="selectAll"></th>
+                                <th class="sortable" data-sort="name">モデル名</th>
+                                <th class="sortable" data-sort="provider">プロバイダー</th>
+                                <th class="sortable" data-sort="type">タイプ</th>
+                                <th>機能</th>
+                                <th class="sortable" data-sort="pricing.inputTokenPrice">入力価格</th>
+                                <th class="sortable" data-sort="pricing.outputTokenPrice">出力価格</th>
+                                <th class="sortable" data-sort="performance.speed">速度</th>
+                            </tr>
+                        </thead>
+                        <tbody id="modelsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 比較モーダル -->
+    <div id="compareModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>モデル比較</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="export-buttons">
+                    <button id="exportJson" class="btn-secondary">JSON出力</button>
+                    <button id="exportCsv" class="btn-secondary">CSV出力</button>
+                </div>
+                <div id="compareContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="api/bedrock-api.js"></script>
+    <script src="script.js"></script>
+    <script src="update-models.js"></script>
+</body>
+</html>

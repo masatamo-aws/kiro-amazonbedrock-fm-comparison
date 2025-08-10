@@ -1,0 +1,204 @@
+{
+  "models": [
+    {
+      "id": "claude-3-5-sonnet",
+      "name": "Claude 3.5 Sonnet",
+      "provider": "Anthropic",
+      "type": "text",
+      "features": {
+        "textGeneration": true,
+        "imageGeneration": false,
+        "embedding": false,
+        "multiLanguage": true,
+        "contextLength": 200000,
+        "fineTuning": false
+      },
+      "performance": {
+        "speed": "fast",
+        "accuracy": "very-high",
+        "tokenThroughput": 1200
+      },
+      "pricing": {
+        "inputTokenPrice": 0.003,
+        "outputTokenPrice": 0.015,
+        "currency": "USD",
+        "per": 1000
+      }
+    },
+    {
+      "id": "claude-3-haiku",
+      "name": "Claude 3 Haiku",
+      "provider": "Anthropic",
+      "type": "text",
+      "features": {
+        "textGeneration": true,
+        "imageGeneration": false,
+        "embedding": false,
+        "multiLanguage": true,
+        "contextLength": 200000,
+        "fineTuning": false
+      },
+      "performance": {
+        "speed": "very-fast",
+        "accuracy": "high",
+        "tokenThroughput": 1500
+      },
+      "pricing": {
+        "inputTokenPrice": 0.00025,
+        "outputTokenPrice": 0.00125,
+        "currency": "USD",
+        "per": 1000
+      }
+    },
+    {
+      "id": "titan-text-g1-large",
+      "name": "Titan Text G1 - Large",
+      "provider": "Amazon",
+      "type": "text",
+      "features": {
+        "textGeneration": true,
+        "imageGeneration": false,
+        "embedding": false,
+        "multiLanguage": true,
+        "contextLength": 4000,
+        "fineTuning": true
+      },
+      "performance": {
+        "speed": "medium",
+        "accuracy": "medium",
+        "tokenThroughput": 800
+      },
+      "pricing": {
+        "inputTokenPrice": 0.0008,
+        "outputTokenPrice": 0.0016,
+        "currency": "USD",
+        "per": 1000
+      }
+    },
+    {
+      "id": "titan-embed-text-v1",
+      "name": "Titan Embeddings Text",
+      "provider": "Amazon",
+      "type": "embedding",
+      "features": {
+        "textGeneration": false,
+        "imageGeneration": false,
+        "embedding": true,
+        "multiLanguage": true,
+        "contextLength": 8000,
+        "fineTuning": false
+      },
+      "performance": {
+        "speed": "fast",
+        "accuracy": "high",
+        "tokenThroughput": 2000
+      },
+      "pricing": {
+        "inputTokenPrice": 0.0001,
+        "outputTokenPrice": 0,
+        "currency": "USD",
+        "per": 1000
+      }
+    },
+    {
+      "id": "stable-diffusion-xl",
+      "name": "Stable Diffusion XL",
+      "provider": "Stability AI",
+      "type": "image",
+      "features": {
+        "textGeneration": false,
+        "imageGeneration": true,
+        "embedding": false,
+        "multiLanguage": false,
+        "contextLength": 77,
+        "fineTuning": false
+      },
+      "performance": {
+        "speed": "medium",
+        "accuracy": "high",
+        "tokenThroughput": 0
+      },
+      "pricing": {
+        "inputTokenPrice": 0.04,
+        "outputTokenPrice": 0,
+        "currency": "USD",
+        "per": "image"
+      }
+    },
+    {
+      "id": "llama2-70b-chat",
+      "name": "Llama 2 70B Chat",
+      "provider": "Meta",
+      "type": "text",
+      "features": {
+        "textGeneration": true,
+        "imageGeneration": false,
+        "embedding": false,
+        "multiLanguage": true,
+        "contextLength": 4096,
+        "fineTuning": true
+      },
+      "performance": {
+        "speed": "medium",
+        "accuracy": "high",
+        "tokenThroughput": 900
+      },
+      "pricing": {
+        "inputTokenPrice": 0.00195,
+        "outputTokenPrice": 0.00256,
+        "currency": "USD",
+        "per": 1000
+      }
+    },
+    {
+      "id": "command-text-v14",
+      "name": "Command Text",
+      "provider": "Cohere",
+      "type": "text",
+      "features": {
+        "textGeneration": true,
+        "imageGeneration": false,
+        "embedding": false,
+        "multiLanguage": true,
+        "contextLength": 4000,
+        "fineTuning": true
+      },
+      "performance": {
+        "speed": "fast",
+        "accuracy": "high",
+        "tokenThroughput": 1000
+      },
+      "pricing": {
+        "inputTokenPrice": 0.0015,
+        "outputTokenPrice": 0.002,
+        "currency": "USD",
+        "per": 1000
+      }
+    },
+    {
+      "id": "jurassic-2-ultra",
+      "name": "Jurassic-2 Ultra",
+      "provider": "AI21 Labs",
+      "type": "text",
+      "features": {
+        "textGeneration": true,
+        "imageGeneration": false,
+        "embedding": false,
+        "multiLanguage": true,
+        "contextLength": 8192,
+        "fineTuning": false
+      },
+      "performance": {
+        "speed": "medium",
+        "accuracy": "high",
+        "tokenThroughput": 850
+      },
+      "pricing": {
+        "inputTokenPrice": 0.0188,
+        "outputTokenPrice": 0.0188,
+        "currency": "USD",
+        "per": 1000
+      }
+    }
+  ]
+}
